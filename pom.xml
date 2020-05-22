@@ -17,6 +17,7 @@
         <module>appium-example</module>
         <module>w3c-examples/w3c-junit5</module>
         <module>w3c-examples/w3c-testng</module>
+        <module>java11/selenium4/junit5</module>
     </modules>
     <dependencies>
         <dependency>
