@@ -2,18 +2,18 @@ package com.emusim;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
-import org.openqa.selenium.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.io.InvalidObjectException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.ExecutionException;
 
 import static org.junit.Assert.assertTrue;
 
@@ -24,14 +24,13 @@ public class EnhancedDebuggingTests {
             return String.format("%s", super.getMethodName());
         }
     };
+    @Rule
+    public SauceTestWatcher testWatcher = new SauceTestWatcher();
     private AppiumDriver driver;
 
     public AppiumDriver getDriver() {
         return driver;
     }
-
-    @Rule
-    public SauceTestWatcher testWatcher = new SauceTestWatcher();
 
     @Before
     public void setUp() throws MalformedURLException {
@@ -55,11 +54,6 @@ public class EnhancedDebuggingTests {
         testWatcher.setDriver(driver);
     }
 
-    @Test
-    public void shouldLoadWebsite() {
-        getDriver().navigate().to("https://www.saucedemo.com");
-        assertTrue(getDriver().findElement(By.id("user-name")).isDisplayed());
-    }
 
     @Test
     public void shouldLogin() throws InvalidObjectException {
@@ -76,8 +70,8 @@ public class EnhancedDebuggingTests {
     }
 
     /*
-    * In this example, we get to see failing commands in Sauce
-    * */
+     * In this example, we get to see failing commands in Sauce
+     * */
     @Test(expected = NoSuchElementException.class)
     public void shouldNotFindElement() throws InvalidObjectException {
         getDriver().navigate().to("https://www.saucedemo.com");
@@ -91,7 +85,7 @@ public class EnhancedDebuggingTests {
     }
 
     private JavascriptExecutor getJsExecutor() throws InvalidObjectException {
-        if(getDriver() != null) {
+        if (getDriver() != null) {
             return (JavascriptExecutor) getDriver();
         }
         throw new InvalidObjectException("Driver was null");
