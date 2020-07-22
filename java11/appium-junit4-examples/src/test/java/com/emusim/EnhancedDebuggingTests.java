@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 import static org.junit.Assert.assertTrue;
 
-public class EnhancedDebugging {
+public class EnhancedDebuggingTests {
     @Rule
     public TestName name = new TestName() {
         public String getMethodName() {
