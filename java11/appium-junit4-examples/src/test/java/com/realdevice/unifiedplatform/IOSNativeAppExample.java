@@ -33,9 +33,11 @@ public class IOSNativeAppExample {
     public void setUp() throws MalformedURLException {
         MutableCapabilities capabilities = new MutableCapabilities();
         capabilities.setCapability("appiumVersion", "1.17.1");
-        capabilities.setCapability("idleTimeout", "90");
         capabilities.setCapability("noReset", "true");
+
         capabilities.setCapability("newCommandTimeout", "90");
+        capabilities.setCapability("idleTimeout", "90");
+
         capabilities.setCapability("language", "en");
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("platformVersion", "13.2");
@@ -49,7 +51,7 @@ public class IOSNativeAppExample {
         driver = new IOSDriver(
                 new URL("https://" + System.getenv("SAUCE_USERNAME") + ":" +
                         System.getenv("SAUCE_ACCESS_KEY") +
-                        "@ondemand.saucelabs.com:443" + "/wd/hub"),
+                        "@ondemand.us-west-1.saucelabs.com" + "/wd/hub"),
                 capabilities);
     }
 
