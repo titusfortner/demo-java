@@ -34,7 +34,7 @@ public class StepDefinitions {
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("name", scenario.getName());
         capabilities.setCapability("app",
-                "storage:filename=" + SauceConstants.RealDevice.IOS_APP);
+                "storage:filename=" + SauceConstants.RealDevice.IOS_APP_FILE_NAME);
 
         driver = new IOSDriver(
                 new URL("https://" + System.getenv("SAUCE_USERNAME") + ":" +

@@ -28,6 +28,8 @@
         <module>common</module>
         <module>java8/visual-e2e/visuale2e.junit4.examples</module>
         <module>java11/selenium3.junit4.examples</module>
+        <module>java8/appium.junit4.framework/appium.junit4.framework</module>
+        <module>java8/appium.junit4.framework</module>
     </modules>
     <dependencies>
         <dependency>
