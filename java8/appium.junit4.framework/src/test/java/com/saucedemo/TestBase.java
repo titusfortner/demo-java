@@ -31,7 +31,8 @@ public class TestBase {
         }
     }
 
-    // Use platform configurator to set your devices
+    // Use platform configurator to set your devices for Emusim
+    // https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
     //
     @Before
     public void setUp() throws MalformedURLException {
@@ -51,7 +52,8 @@ public class TestBase {
         capabilities.setCapability("username", System.getenv("SAUCE_USERNAME"));
         capabilities.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         //TODO different from real devices
-        capabilities.setCapability("app","sauce-storage:sauce-demo-ios-emusim.zip");
+        capabilities.setCapability("app",
+                "storage:filename=iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.0.zip");
 
         driver = new IOSDriver(new URL(SauceConstants.HubUrl.WEST_FULL),
                 capabilities);
