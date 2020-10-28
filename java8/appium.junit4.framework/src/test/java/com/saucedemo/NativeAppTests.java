@@ -1,6 +1,5 @@
 package com.saucedemo;
 
-import com.common.SauceConstants;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
@@ -17,7 +16,7 @@ import java.net.URL;
 
 import static org.junit.Assert.assertTrue;
 
-public class IOSNativeAppUnifiedPlatformTest {
+public class NativeAppTests {
     @Rule
     public TestName name = new TestName() {
         public String getMethodName() {
@@ -38,6 +37,7 @@ public class IOSNativeAppUnifiedPlatformTest {
         capabilities.setCapability("newCommandTimeout", "90");
         capabilities.setCapability("language", "en");
         capabilities.setCapability("platformName", "iOS");
+        //cannot use .* for platform version
         capabilities.setCapability("platformVersion", "14.0.1");
         capabilities.setCapability("deviceName", "iPhone 11.*");
         capabilities.setCapability("name", name.getMethodName());
