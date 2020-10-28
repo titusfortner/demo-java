@@ -30,6 +30,9 @@ public class TestBase {
             getDriver().quit();
         }
     }
+
+    // Use platform configurator to set your devices
+    //
     @Before
     public void setUp() throws MalformedURLException {
         MutableCapabilities capabilities = new MutableCapabilities();
@@ -39,14 +42,16 @@ public class TestBase {
         capabilities.setCapability("language", "en");
         capabilities.setCapability("platformName", "iOS");
         //cannot use .* for platform version
-        capabilities.setCapability("platformVersion", "14.0.1");
-        capabilities.setCapability("deviceName", "iPhone 11.*");
+        //TODO different from real devices
+        capabilities.setCapability("platformVersion", "13.4");
+        //TODO different from real devices
+        capabilities.setCapability("deviceName", "iPhone XS Max Simulator");
+        capabilities.setCapability("appWaitActivity", "com.swaglabsmobileapp.MainActivity");
         capabilities.setCapability("name", name.getMethodName());
         capabilities.setCapability("username", System.getenv("SAUCE_USERNAME"));
         capabilities.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-
-        capabilities.setCapability("app",
-                SauceConstants.RealDevice.IOS_APP_FILE_NAME);
+        //TODO different from real devices
+        capabilities.setCapability("app","sauce-storage:sauce-demo-ios-emusim.zip");
 
         driver = new IOSDriver(new URL(SauceConstants.HubUrl.WEST_FULL),
                 capabilities);
