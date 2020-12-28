@@ -8,31 +8,6 @@
     <artifactId>demo-java</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>on-boarding-modules/junit</module>
-        <module>on-boarding-modules/testng</module>
-        <module>parallel-testing/cross-browser-and-platform-config</module>
-        <module>parallel-testing/single-browser-config</module>
-        <module>headless</module>
-        <module>appium-example</module>
-        <module>w3c-examples/w3c-junit5</module>
-        <module>w3c-examples/w3c-testng</module>
-        <module>java8/selenium3/examples/testng/image-injection</module>
-        <module>java11/appium-junit4-examples</module>
-        <module>java11/selenium3-testng-framework</module>
-        <module>java11/selenium3-junit5-examples</module>
-        <module>java8/selenium3/examples/testng/biometric-login</module>
-        <module>java8/selenium3.junit4.examples.cucumber</module>
-        <module>java11/appium7.junit4.examples.cucumber</module>
-        <module>common</module>
-        <module>java8/visual-e2e/visuale2e.junit4.examples</module>
-        <module>java11/selenium3.junit4.examples</module>
-        <module>java8/selenium.testng.examples</module>
-        <module>java8/selenium.junit4.examples</module>
-        <module>java8/selenium.junit3.examples</module>
-        <module>training-sessions/ci.pipeline</module>
-        <module>java8/selenium4.junit4.examples</module>
-    </modules>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
