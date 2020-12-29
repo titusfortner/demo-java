@@ -13,20 +13,6 @@ jobs:
             - demo-java-{{ checksum "pom.xml" }}
             - demo-java-
       - run:
-          name: "Install Sauce Connect Client"
-          command: |
-            sudo apt-get update
-            sudo apt-get install lsof
-            curl https://saucelabs.com/downloads/sc-4.6.3-linux.tar.gz -o saucelabs.tar.gz
-            tar -xzf saucelabs.tar.gz
-      - run:
-          name: "Launch Tunnel 1"
-          background: true
-          command: |
-            chmod 777 -R ./sc-4.6.3-linux
-            PATH=./sc-4.6.3-linux/bin:$PATH
-            sc --pidfile /tmp/sc.pid1 -u ${SAUCE_USERNAME} -k ${SAUCE_ACCESS_KEY} -i demo-java-tunnel --no-remove-colliding-tunnels --se-port 4445
-      - run:
           name: "Setup Maven Dependencies"
           command: |
             mvn dependency:go-offline
@@ -34,10 +20,6 @@ jobs:
           paths:
             - ~/.m2
           key: demo-java-{{ checksum "pom.xml" }}
-      - run:
-          name: "Shut Down Sauce Connect Tunnel"
-          command: |
-            kill -9 `cat /tmp/sc.pid1`
       - store_test_results:
           path: target/surefire-reports
       - store_artifacts:
