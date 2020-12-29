@@ -25,7 +25,7 @@ jobs:
           command: |
             chmod 777 -R ./sc-4.6.3-linux
             PATH=./sc-4.6.3-linux/bin:$PATH
-            sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY  -x "https://eu-central-1.saucelabs.com/rest/v1" -i "demo-java-tunnel" -v -s &
+            sc -u --pidfile /tmp/sc.pid1 $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY  -i "demo-java-tunnel" -v -s &
       - run:
           name: "Setup Maven Dependencies"
           command: |
