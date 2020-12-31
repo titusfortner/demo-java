@@ -16,6 +16,14 @@ jobs:
           name: "Setup Maven Dependencies"
           command: |
             mvn dependency:go-offline
+      - run:
+          name: "Run appium-app/testng examples"
+          command: |
+            pwd
+            ls
+            cd appium-app/testng/examples/image-injection
+            mvn clean install -DtestngXmlFile=testng_ios.xml -Dregion=eu
+            mvn clean install -DtestngXmlFile=testng_android.xml -Dregion=eu
       - save_cache:
           paths:
             - ~/.m2
