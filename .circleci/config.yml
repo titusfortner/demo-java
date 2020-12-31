@@ -17,6 +17,10 @@ jobs:
           command: |
             mvn dependency:go-offline
       - run:
+            name: "pwd"
+            command: |
+              pwd
+      - run:
           name: "Run appium-app/testng examples"
           command: |
             pwd
