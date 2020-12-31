@@ -20,6 +20,10 @@ jobs:
             name: "pwd"
             command: |
               pwd
+              ls
+              cd appium-app/testng/examples/image-injection
+              pwd
+              ls
       - run:
           name: "Run appium-app/testng examples"
           command: |
