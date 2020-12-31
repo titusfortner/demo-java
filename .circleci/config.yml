@@ -24,6 +24,7 @@ jobs:
               cd appium-app/testng/examples/image-injection
               pwd
               ls
+              echo $SAUCE_USERNAME
       - run:
           name: "Run appium-app/testng examples"
           command: |
