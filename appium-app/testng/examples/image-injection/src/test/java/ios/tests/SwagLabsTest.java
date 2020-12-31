@@ -51,7 +51,10 @@ public class SwagLabsTest {
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("automationName", "XCUITEST");
         capabilities.setCapability("name", methodName);
-        capabilities.setCapability("app", "storage:filename=" +appName);
+        //      You can use  storage:filename=" +appName if you uploaded your app to Saucd Storage
+//        capabilities.setCapability("app", "storage:filename=" +appName);
+        capabilities.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa");
+
         capabilities.setCapability("noReset", true);
         capabilities.setCapability("sauceLabsImageInjectionEnabled", true);
         capabilities.setCapability("autoAcceptAlerts", true);

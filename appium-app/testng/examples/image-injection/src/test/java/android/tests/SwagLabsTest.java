@@ -46,6 +46,7 @@ public class SwagLabsTest{
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("name", methodName);
+//      You can use  storage:filename=" +appName if you uploaded your app to Saucd Storage
 //        capabilities.setCapability("app", "storage:filename=" +appName);
         capabilities.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk");
         https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk

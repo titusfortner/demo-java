@@ -17,16 +17,11 @@ jobs:
           command: |
             mvn dependency:go-offline
       - run:
-          name: "Upload Apps to Sauce Storage "
-          command: |
-            curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" https://eu-central-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/sample-app-android.apk?overwrite=true --data-binary @https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
-      - run:
           name: "Run appium-app/testng examples"
           command: |
-            pwd
-            ls
             cd appium-app/testng/examples/image-injection
             mvn clean install -DtestngXmlFile=testng_android.xml -Dregion=eu
+            mvn clean install -DtestngXmlFile=testng_ios.xml -Dregion=eu
       - save_cache:
           paths:
             - ~/.m2
