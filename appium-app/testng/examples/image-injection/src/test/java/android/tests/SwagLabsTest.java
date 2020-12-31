@@ -46,7 +46,9 @@ public class SwagLabsTest{
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("name", methodName);
-        capabilities.setCapability("app", "storage:filename=" +appName);
+//        capabilities.setCapability("app", "storage:filename=" +appName);
+        capabilities.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk");
+        https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
         capabilities.setCapability("appWaitActivity", "com.swaglabsmobileapp.MainActivity");
 
         capabilities.setCapability("noReset", true);
