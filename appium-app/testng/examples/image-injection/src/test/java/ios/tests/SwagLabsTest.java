@@ -24,13 +24,15 @@ public class SwagLabsTest {
     @BeforeMethod
     public void setup(Method method) throws MalformedURLException {
 
-        System.out.println("Sauce - BeforeMethod hook");
+        System.out.println("Sauce - BeforeMethod hook ");
 
         String region = getProperty("region", "eu");
 
         String username = System.getenv("SAUCE_USERNAME");
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
         String methodName = method.getName();
+
+        System.out.println("Sauce - BeforeMethod hook " + username);
 
         String sauceUrl;
         String appName ="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa";
