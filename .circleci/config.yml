@@ -22,6 +22,11 @@ jobs:
             cd appium-app/testng/examples/image-injection
             mvn clean install -DtestngXmlFile=testng_android.xml -Dregion=eu
             mvn clean install -DtestngXmlFile=testng_ios.xml -Dregion=eu
+            cd ~/repo/appium-app/testng/examples/image-injection
+            pwd
+            mvn clean install -DtestngXmlFile=testng_ios.xml -Dregion=eu -Drdc=true
+            mvn clean install -DtestngXmlFile=testng_ios.xml -Dregion=eu -Drdc=false
+            mvn clean install -DtestngXmlFile=testng_android.xml -Dregion=eu
       - save_cache:
           paths:
             - ~/.m2
