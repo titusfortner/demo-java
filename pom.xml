@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>appium-app/testng/examples/image-injection</module>
+        <module>appium-app/testng/examples/biometric-login</module>
     </modules>
 
     <properties>
