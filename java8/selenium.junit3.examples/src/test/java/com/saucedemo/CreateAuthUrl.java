@@ -21,7 +21,7 @@ public class CreateAuthUrl extends TestCase {
     public void tearDown() {
         session.stop(isTestPassed);
         String authUrl = "https://app.saucelabs.com/tests/" +
-                sessionId + "?auth=" + getAuthToken(sessionId);
+                sessionId.toString() + "?auth=" + getAuthToken(sessionId);
         //Now that you have the authUrl, you can perform
         //whatever operations you want with it
     }
