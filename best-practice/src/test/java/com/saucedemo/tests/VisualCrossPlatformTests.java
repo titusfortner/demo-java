@@ -1,16 +1,15 @@
 package com.saucedemo.tests;
 
-import com.pages.CheckoutStepOnePage;
-import com.pages.LoginPage;
-import com.pages.ProductsPage;
-import com.pages.ShoppingCartPage;
 import com.saucedemo.Endpoints;
 import com.saucedemo.WebTestsBase;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -64,7 +63,8 @@ public class VisualCrossPlatformTests extends WebTestsBase {
 
         MutableCapabilities visualOptions = new MutableCapabilities();
         visualOptions.setCapability("apiKey", screenerApiKey);
-        visualOptions.setCapability("projectName", "Sauce Demo");
+        // Change project name to your application
+        visualOptions.setCapability("projectName", "Flagstar");
         visualOptions.setCapability("viewportSize", viewportSize);
         browserOptions.setCapability("sauce:visual", visualOptions);
 
@@ -74,21 +74,26 @@ public class VisualCrossPlatformTests extends WebTestsBase {
 
     @Test()
     public void pagesRenderCorrectly() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.visit();
+        //Open url using Selenium
+        driver.get("https://www.flagstar.com");
+        // Starting a new visual session called Responsive Flows
         getJSExecutor().executeScript("/*@visual.init*/", "Responsive Flows");
-        loginPage.takeSnapshot(deviceNameValue);
 
-        loginPage.login("standard_user");
-        new ProductsPage(driver).takeSnapshot(deviceNameValue);
+        //Deal with the cookie first using Selenium
 
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-        shoppingCartPage.visit();
-        shoppingCartPage.takeSnapshot(deviceNameValue);
+        JavascriptExecutor js = driver;
+        // Use this command to capture snapshots
+        js.executeScript("/*@visual.snapshot*/",
+                "Home Page" + ":" + deviceName);
 
-        CheckoutStepOnePage stepOne = new CheckoutStepOnePage(driver);
-        stepOne.visit();
-        stepOne.takeSnapshot(deviceNameValue);
+        // another page
+        driver.get("https://www.flagstar.com/branch-locator.html");
+        WebElement search = driver.findElement(By.id("startAddress"));
+        search.click();
+        search.sendKeys("49201");
+        driver.findElement(By.id("locator-submit")).click();
+        js.executeScript("/*@visual.snapshot*/",
+                "Branch Locator" + ":" + deviceName);
 
         Map<String, Object> response = (Map<String, Object>) getJSExecutor().executeScript("/*@visual.end*/");
         assertEquals(true, response.get("passed"));
